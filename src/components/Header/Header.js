@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Header.css';
 
 const mapStateToProps = state => ({
   user: state.user,
