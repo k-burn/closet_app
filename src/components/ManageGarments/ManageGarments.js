@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import GarmentCard from './GarmentCard/GarmentCard.js';
 import axios from 'axios';
+import './ManageGarments.css';
 
 
 //class extends components
@@ -36,6 +37,19 @@ class ManageGarments extends Component{
                 alert('Garments could\'t be obtained');
         })
     }
+    deleteGarment = (id) => {
+        console.log('in delete garment');
+        axios({
+            method: 'DELETE',
+            url:'/api/garments/' + id,
+        }).then((response)=>{
+            console.log(response.data);
+            this.getGarments();
+        }).catch((error)=>{
+                console.log(error, 'Issue deleting Garment');
+                alert('Garment could\'t be deleted');
+        })
+    }
 
     //render is what shows up on the page
     render() {
@@ -49,6 +63,7 @@ class ManageGarments extends Component{
                     <button>Sort by</button>
                     <button>Filter By</button>
                     <button>More Filters</button>
+                    <br/>
                     <div id="garmentDisplayContainer">
                     {/* This will be where the cards with each garment will be displayed. 
                         cards will be mapped over here and will appear in a grid*/}
