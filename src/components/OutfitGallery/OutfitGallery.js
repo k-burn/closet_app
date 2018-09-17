@@ -1,5 +1,7 @@
 //imports
 import React, { Component } from 'react';
+import Nav from '../../components/Nav/Nav';
+
 
 //class extends components
 class OutfitGallery extends Component{
@@ -21,8 +23,10 @@ class OutfitGallery extends Component{
     //render is what shows up on the page
     render() {
         return(
+            
             //you can only return one thing, so wrap it all up in one div
             <div>
+                <Nav />
                 <p>Outfit Gallery View</p>
             </div>
         )

@@ -1,5 +1,7 @@
 //imports
 import React, { Component } from 'react';
+import Nav from '../../components/Nav/Nav';
+
 
 //class extends components
 class DressMe extends Component{
@@ -23,6 +25,7 @@ class DressMe extends Component{
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
+                <Nav />
                 <p>Dress Me View</p>
             </div>
         )

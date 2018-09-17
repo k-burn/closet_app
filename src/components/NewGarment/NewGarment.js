@@ -1,5 +1,7 @@
 //imports
 import React, { Component } from 'react';
+import Nav from '../../components/Nav/Nav';
+
 
 //class extends components
 class NewGarment extends Component{
@@ -23,6 +25,7 @@ class NewGarment extends Component{
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
+                <Nav />
                 <p>New Garment View</p>
             </div>
         )

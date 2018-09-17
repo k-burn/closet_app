@@ -15,6 +15,26 @@ const Nav = () => (
             Info Page
           </Link>
         </li>
+        <li>
+          <Link to="/manageGarments">
+            Manage Garments
+          </Link>
+        </li>
+        <li>
+          <Link to="/mixNMatch">
+            Mix 'n Match'
+          </Link>
+        </li>
+        <li>
+          <Link to="/dressMe">
+            Dress Me
+          </Link>
+        </li>
+        <li>
+          <Link to="/outfitGallery">
+            Outfit Gallery
+          </Link>
+        </li>
       </ul>
     </div>
   </div>
