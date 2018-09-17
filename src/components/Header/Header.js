@@ -11,7 +11,7 @@ class Header extends Component{
       let welcomeStatement = null;
       if (this.props.user.userName) {
         welcomeStatement = (
-          <div id="welcomeStatment">
+          <div id="welcomeStatement">
             <h4 id="welcomeHeader">
               Welcome, { this.props.user.userName }!
             </h4>

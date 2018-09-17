@@ -14,9 +14,9 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color: #dee1f1;
     width: 30%;
-    height: 250px;
+    height: 500px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
@@ -48,7 +48,7 @@ input[type="submit"] {
 }
 
 .navbar {
-  background-color: #00acb0;
+  background-color: #756f97;
   width: 100%;
   border-radius: 0px;
 }

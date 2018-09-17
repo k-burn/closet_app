@@ -17,7 +17,7 @@ const Nav = () => (
         </li>
         <li>
           <Link to="/mixNMatch">
-            Mix 'n Match'
+            Mix 'n Match
           </Link>
         </li>
         <li>
