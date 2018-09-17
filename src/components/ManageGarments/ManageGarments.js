@@ -51,13 +51,18 @@ class ManageGarments extends Component{
         })
     }
 
+    handleAddGarmentClick = () => {
+        console.log('Clicked add garment button; redirecting to New Garment Form')
+        this.props.history.push('newGarment');
+    }
+
     //render is what shows up on the page
     render() {
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
                 <Nav />
-                <button>Add New Garment</button>
+                <button onClick={this.handleAddGarmentClick} >Add New Garment</button>
                 <div>
                     <p>Manage Existing Garments </p>
                     <button>Sort by</button>
