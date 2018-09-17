@@ -26,7 +26,11 @@ class DressMe extends Component{
             //you can only return one thing, so wrap it all up in one div
             <div>
                 <Nav />
-                <p>Dress Me View</p>
+                <div>
+                    <p>Dress Me View</p>
+                    <button>Dress Me</button>
+                    
+                </div>
             </div>
         )
     }
