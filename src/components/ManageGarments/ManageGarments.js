@@ -13,13 +13,13 @@ class ManageGarments extends Component{
     }
 
     //componentDidMount
-    componentDidMount({
+    //componentDidMount({
         //put things here to run on page-load
-    })
+    //})
     //arrow functions
 
     //render is what shows up on the page
-    render(){
+    render() {
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
