@@ -21,7 +21,18 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-
+    console.log('in garment POST');
+    console.log(req.body);
+    const garment = req.body;
+  const queryText = `INSERT INTO "garments" ("garment_name", "user_id", "garment_type", "image_path", "comfort_level", "wash_instructions", "red", "orange", "yellow", "green", "blue", "purple", "white", "black", "grey", "pink", "winter", "spring", "summer", "fall") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);`;
+  pool.query(queryText, [garment.name, req.user.id, garment.type, garment.url, garment.comfort, garment.wash_instructions, garment.red, garment.orange, garment.yellow, garment.green, garment.blue, garment.purple, garment.white, garment.black, garment.grey, garment.pink, garment.winter, garment.spring, garment.summer, garment.fall])
+    .then((result)=>{
+        res.sendStatus(201);
+    })
+    .catch((error)=>{
+        console.log('error making feedback POST', error);
+        res.sendStatus(500);
+    })
 });
 
 router.delete('/:id', (req, res) => {
