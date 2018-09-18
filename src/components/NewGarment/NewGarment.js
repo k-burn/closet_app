@@ -10,8 +10,24 @@ class NewGarment extends Component{
     constructor(props) {
         super(props);
         this.state ={
-            comfort: '5'
-
+            name: '',
+            type: '',
+            red: '',
+            orange: '',
+            yellow:'',
+            green: '',
+            blue: '',
+            purple: '',
+            black: '',
+            white: '',
+            grey: '',
+            pink:'',
+            winter: '',
+            spring: '',
+            summer: '',
+            fall:'',
+            comfort: '5',
+            wash_instructions:'',
         }
     }
 
@@ -99,6 +115,8 @@ class NewGarment extends Component{
                     <textarea placeholder="washing instructions"
                         cols="30"
                         rows="6"></textarea>
+                    <br/>
+                    <input type="submit"/>
 
 
                 </form>
