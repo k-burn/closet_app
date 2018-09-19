@@ -10,7 +10,7 @@ class GarmentCard extends Component{
    
     render(){
         return(
-            <div className="card">
+            <div className="garmentCard">
                 {/*This will display the image of the garment in a card format*/}
                 <h3>{this.props.garment.garment_name}</h3>
                 <img className="garmentImage"src={this.props.garment.image_path} alt="garment"></img>

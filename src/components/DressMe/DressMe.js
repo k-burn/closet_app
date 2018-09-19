@@ -1,6 +1,8 @@
 //imports
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
+import axios from 'axios';
+import DressMeCard from './DressMeCard/DressMeCard.js'
 
 
 //class extends components
@@ -10,15 +12,29 @@ class DressMe extends Component{
     constructor(props) {
         super(props);
         this.state ={
-
+            outfit: [],
         }
     }
 
-    //componentDidMount
-    //componentDidMount({
+    componentDidMount(){
         //put things here to run on page-load
-   // })
+        //this.getRandomOutfit(); <-- not using this because I want the page to start on empty
+    }
     //arrow functions
+    getRandomOutfit = () => {
+        axios({
+            method: 'GET',
+            url:'/api/outfits/random',
+        }).then((response)=>{
+            console.log(response.data);
+            this.setState({
+                outfit: response.data,
+            })
+        }).catch((error)=>{
+                console.log(error, 'Issue getting outfits');
+                alert('Outfits could\'t be obtained');
+        })
+    }
 
     //render is what shows up on the page
     render() {
@@ -28,8 +44,19 @@ class DressMe extends Component{
                 <Nav />
                 <div>
                     <p>Dress Me View</p>
-                    <button>Dress Me</button>
-                    
+                    {JSON.stringify(this.state)}
+                    <br/>
+                    <button id="dressMe" onClick={this.getRandomOutfit}>Dress Me</button>
+                    <div id="outfitDisplayContainer">
+                    {/* This will be where the cards with each garment will be displayed. 
+                        cards will be mapped over here and will appear in a grid*/}
+                     {this.state.outfit.map((outfit, i)=>{
+                                return(
+                                    <DressMeCard key= {i} outfit={outfit}/>
+                                );
+                            })}
+                    </div>
+
                 </div>
             </div>
         )

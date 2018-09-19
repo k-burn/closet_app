@@ -1,11 +1,6 @@
 import React, {Component } from 'react';
-import './OutfitCard.css';
 
-class OutfitCard extends Component{
-
-    handleDeleteClick = () => {
-        this.props.deleteOutfit(this.props.outfit.id);
-    }
+class DressMeCard extends Component{
 
    
     render(){
@@ -26,4 +21,4 @@ class OutfitCard extends Component{
 
 }
 
-export default OutfitCard;
+export default DressMeCard;
