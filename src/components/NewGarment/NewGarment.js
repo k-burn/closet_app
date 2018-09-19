@@ -131,6 +131,15 @@ class NewGarment extends Component{
                         checked={this.state.pink}
                         onChange={this.handleCheckboxChange} />
                         <label htmlFor="pink">Pink</label>
+                        <br/>
+                        <input type="checkbox" name="brown"
+                        checked={this.state.brown}
+                        onChange={this.handleCheckboxChange} />
+                        <label htmlFor="pink">Brown</label>
+                        <input type="checkbox" name="pink"
+                        checked={this.state.tan}
+                        onChange={this.handleCheckboxChange} />
+                        <label htmlFor="pink">Tan</label>
 
                     </div>
                     <div id="seasonsCheckboxContainer">

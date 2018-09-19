@@ -13,6 +13,7 @@ class DressMe extends Component{
         super(props);
         this.state ={
             outfit: [],
+            dressMeClicked: false,
         }
     }
 
@@ -21,6 +22,7 @@ class DressMe extends Component{
         //this.getRandomOutfit(); <-- not using this because I want the page to start on empty
     }
     //arrow functions
+    
     getRandomOutfit = () => {
         axios({
             method: 'GET',
@@ -35,9 +37,18 @@ class DressMe extends Component{
                 alert('Outfits could\'t be obtained');
         })
     }
+    handleDressMeClick = () => {
+        this.setState({dressMeClicked: true});
+        this.getRandomOutfit();
+    }
+
 
     //render is what shows up on the page
     render() {
+        //const dressMeClicked = this.state.dressMeClicked;
+        //if(dressMeClicked) {
+
+        //}
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
@@ -46,7 +57,7 @@ class DressMe extends Component{
                     <p>Dress Me View</p>
                     {JSON.stringify(this.state)}
                     <br/>
-                    <button id="dressMe" onClick={this.getRandomOutfit}>Dress Me</button>
+                    <button id="dressMe" onClick={this.handleDressMeClick}>Dress Me</button>
                     <div id="outfitDisplayContainer">
                     {/* This will be where the cards with each garment will be displayed. 
                         cards will be mapped over here and will appear in a grid*/}
@@ -56,7 +67,7 @@ class DressMe extends Component{
                                 );
                             })}
                     </div>
-
+                    <button onClick= {this.getRandomOutfit}> Ugh, as IF! </button>
                 </div>
             </div>
         )
