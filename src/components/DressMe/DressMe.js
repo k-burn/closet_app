@@ -12,8 +12,8 @@ class DressMe extends Component{
     constructor(props) {
         super(props);
         this.state ={
-            outfit: [],
-            dressMeClicked: false,
+            outfit: [], //<-- currently an empty array, but this is where the generated outfit will be stored
+            dressMeClicked: false, //<--this records whether or not the dress me button has been clicked on the current page session
         }
     }
 
@@ -42,13 +42,13 @@ class DressMe extends Component{
         this.getRandomOutfit();
     }
 
+    handleWearIt = () => {
+        alert(" You see how picky I am about my shoes and they only go on my feet.")
+    }
+
 
     //render is what shows up on the page
     render() {
-        //const dressMeClicked = this.state.dressMeClicked;
-        //if(dressMeClicked) {
-
-        //}
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
@@ -57,7 +57,7 @@ class DressMe extends Component{
                     <p>Dress Me View</p>
                     {JSON.stringify(this.state)}
                     <br/>
-                    <button id="dressMe" onClick={this.handleDressMeClick}>Dress Me</button>
+                    {this.state.dressMeClicked ? null : <button id="dressMe" onClick={this.handleDressMeClick}>Dress Me</button>}
                     <div id="outfitDisplayContainer">
                     {/* This will be where the cards with each garment will be displayed. 
                         cards will be mapped over here and will appear in a grid*/}
@@ -67,7 +67,8 @@ class DressMe extends Component{
                                 );
                             })}
                     </div>
-                    <button onClick= {this.getRandomOutfit}> Ugh, as IF! </button>
+                    {this.state.dressMeClicked ? <button onClick= {this.getRandomOutfit}> Ugh, as IF! </button> : null}
+                    {this.state.dressMeClicked ? <button onClick= {this.handleWearIt}> Wear It! </button> : null}
                 </div>
             </div>
         )
