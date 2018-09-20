@@ -14,7 +14,6 @@ class ManageGarments extends Component{
         super(props);
         this.state ={
             garments: [],
-            isModalOpen: false,
         }
     }
 
@@ -52,15 +51,17 @@ class ManageGarments extends Component{
         })
     }
 
+
     handleAddGarmentClick = () => {
         console.log('Clicked add garment button; redirecting to New Garment Form')
         this.props.history.push('newGarment');
     }
+
+    
     
 
     //render is what shows up on the page
     render() {
-       
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
@@ -78,7 +79,7 @@ class ManageGarments extends Component{
                      {this.state.garments.map((garment, i)=>{
                                 return(
                                     <GarmentCard key= {i} garment={garment}
-                                                deleteGarment={this.deleteGarment} />
+                                                deleteGarment={this.deleteGarment}/>
                                 );
                             })}
                     </div>

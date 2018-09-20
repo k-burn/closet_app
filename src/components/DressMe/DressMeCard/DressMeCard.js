@@ -15,7 +15,6 @@ class DressMeCard extends Component{
                 <br/>
                 <h3>{this.props.outfit.notes}</h3>
                 <br/>
-                <button onClick={() => { if (window.confirm('Are you sure you wish to delete this outfit?')) this.handleDeleteClick()}}>Delete</button>
             </div>
         )}
 
