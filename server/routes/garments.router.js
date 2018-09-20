@@ -20,7 +20,8 @@ router.get('/', (req, res) => {
 router.get('/tops', (req, res) => {
     if (req.isAuthenticated()) {
         const queryText = `SELECT * FROM "garments"
-                            WHERE "garment_type" = 'top';`;
+                            WHERE "garment_type" = 'top'
+                            ORDER BY random();`;
         pool.query(queryText)
             .then(response => res.send(response.rows))
             .catch(error => res.sendStatus(500));
@@ -32,7 +33,8 @@ router.get('/tops', (req, res) => {
 router.get('/bottoms', (req, res) => {
     if (req.isAuthenticated()) {
         const queryText = `SELECT * FROM "garments"
-                            WHERE "garment_type" = 'bottom';`;
+                            WHERE "garment_type" = 'bottom'
+                            ORDER BY random();`;
         pool.query(queryText)
             .then(response => res.send(response.rows))
             .catch(error => res.sendStatus(500));

@@ -15,7 +15,8 @@ class MixNMatch extends Component{
             bottoms:[],
             selectedTop: {},
             selectedBottom: {},
-            arrayIndex: 0,
+            topIndex: 0,
+            bottomIndex:0,
         }
     }
 
@@ -49,13 +50,56 @@ class MixNMatch extends Component{
                 alert('Bottoms could\'t be obtained');
         })
     }
-    peruseTops = ()=> {
-        console.log(this.state.tops[this.state.arrIndex]);
-        this.setState({
-            arrayIndex: +1
-        })
-        console.log(this.state.tops[this.state.arrIndex]);
-        
+    peruseTopsForward = ()=> {
+        if ( this.state.topIndex >= (this.state.tops.length - 1)){
+            this.setState({
+                topIndex: 0,
+            })
+        }
+        else {
+            this.setState({
+                topIndex: this.state.topIndex +1,
+            })
+        }
+    }
+    peruseTopsBackward = ()=> {
+        console.log(' In Peruse Tops');
+        if (0 >= this.state.topIndex){
+            this.setState({
+                topIndex: this.state.tops.length -1,
+            })
+        }
+        else {
+            this.setState({
+                topIndex: this.state.topIndex -1,
+            })
+        }
+    }
+
+    peruseBottomsForward = ()=> {
+        if ( this.state.bottomIndex >= (this.state.bottoms.length - 1)){
+            this.setState({
+                bottomIndex: 0,
+            })
+        }
+        else {
+            this.setState({
+                bottomIndex: this.state.bottomIndex +1,
+            })
+        }
+    }
+    peruseBottomsBackward = ()=> {
+        console.log(' In Peruse Tops');
+        if (0 >= this.state.bottomIndex){
+            this.setState({
+                bottomIndex: this.state.bottoms.length -1,
+            })
+        }
+        else {
+            this.setState({
+                bottomIndex: this.state.bottomIndex -1,
+            })
+        }
     }
 
     //componentDidMount
@@ -69,8 +113,8 @@ class MixNMatch extends Component{
 
     //render is what shows up on the page
     render() {
-        let selectedTop = this.state.tops[0];
-        let selectedBottom = this.state.bottoms[0];
+        let selectedTop = this.state.tops[this.state.topIndex];
+        let selectedBottom = this.state.bottoms[this.state.bottomIndex];
         
         
         return(
@@ -78,15 +122,16 @@ class MixNMatch extends Component{
             <div>
                 <Nav />
                 <p>Mix 'n Match View</p>
-                <button> Back </button>
+                {JSON.stringify(this.state.tops.length)}
+                <button onClick={this.peruseTopsBackward}> Back </button>
                 <div className="picker">{JSON.stringify(selectedTop)}</div>
-                <button> Forward </button>
+                <button onClick={this.peruseTopsForward}> Forward </button>
                 <br/>
                 <div className="dressMeCard"></div>
                 <br/>
-                <button> Back </button>
+                <button onClick={this.peruseBottomsBackward}> Back </button>
                 <div className="picker">{JSON.stringify(selectedBottom)}</div>
-                <button> Forward </button>
+                <button onClick={this.peruseBottomsForward}> Forward </button>
                 
 
 
