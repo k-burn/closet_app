@@ -46,30 +46,40 @@ router.get('/random', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    console.log('in garment POST');
-    console.log(req.body);
-    const garment = req.body;
-  const queryText = `INSERT INTO "saved_outfits" ("outfit_name", "user_id", "outfit_type", "image_path", "comfort_level") VALUES ($1, $2, $3, $4, $5, $6);`;
-  pool.query(queryText, [garment.name, req.user.id, garment.type, garment.url, garment.comfort])
-    .then((result)=>{
-        res.sendStatus(201);
-    })
-    .catch((error)=>{
-        console.log('error making feedback POST', error);
-        res.sendStatus(500);
-    })
+    if (req.isAuthenticated()) {
+        console.log('in garment POST');
+        console.log(req.body);
+        const garment = req.body;
+        const queryText = `INSERT INTO "saved_outfits" ("outfit_name", "user_id", "outfit_type", "image_path", "comfort_level") VALUES ($1, $2, $3, $4, $5, $6);`;
+        pool.query(queryText, [garment.name, req.user.id, garment.type, garment.url, garment.comfort])
+        .then((result)=>{
+            res.sendStatus(201);
+        })
+        .catch((error)=>{
+            console.log('error making feedback POST', error);
+            res.sendStatus(500);
+        })
+    }
+    else{
+        res.sendStatus (403)
+    }
 });
 
 router.delete('/:id', (req, res) => {
-    console.log('DELETE api/delete', req.params.id);
-    const idOfGarmentToDelete = req.params.id;
-    const queryText = `DELETE FROM "saved_outfits" WHERE "id" = $1;`;
-    pool.query(queryText, [idOfGarmentToDelete]).then((result)=>{
-        res.sendStatus(200);
-    }).catch((error)=>{
-        console.log('Error in delete garment route', error);
-        res.sendStatus(500);
-    })
+    if (req.isAuthenticated()) {
+        console.log('DELETE api/delete', req.params.id);
+        const idOfGarmentToDelete = req.params.id;
+        const queryText = `DELETE FROM "saved_outfits" WHERE "id" = $1;`;
+        pool.query(queryText, [idOfGarmentToDelete]).then((result)=>{
+            res.sendStatus(200);
+        }).catch((error)=>{
+            console.log('Error in delete garment route', error);
+            res.sendStatus(500);
+        })
+    }
+    else {
+        res.sendStatus(403)
+    }
 });
 
 module.exports = router;

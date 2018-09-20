@@ -14,6 +14,7 @@ class Header extends Component{
 
   logout = () => {
     this.props.dispatch(triggerLogout());
+  
   }
     render() {
       let welcomeStatement = null;
