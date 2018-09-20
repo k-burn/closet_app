@@ -10,6 +10,7 @@
     height: 300px;
     margin: 20px;
     display: inline-block;
+    position: relative;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -20,4 +21,9 @@
 /* Add some padding inside the card container */
 .container {
     padding: 2px 16px;
+}
+.favBTN {
+    position: absolute;
+    right:    10px;
+    bottom:   10px;
 }

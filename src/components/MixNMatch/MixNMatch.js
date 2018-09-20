@@ -13,8 +13,6 @@ class MixNMatch extends Component{
         this.state ={
             tops: [],
             bottoms:[],
-            selectedTop: {},
-            selectedBottom: {},
             topIndex: 0,
             bottomIndex:0,
         }
@@ -113,8 +111,8 @@ class MixNMatch extends Component{
 
     //render is what shows up on the page
     render() {
-        let selectedTop = this.state.tops[this.state.topIndex];
-        let selectedBottom = this.state.bottoms[this.state.bottomIndex];
+        const selectedTop = this.state.tops[this.state.topIndex];
+        const selectedBottom = this.state.bottoms[this.state.bottomIndex];
         
         
         return(
@@ -127,14 +125,17 @@ class MixNMatch extends Component{
                 <div className="picker">{JSON.stringify(selectedTop)}</div>
                 <button onClick={this.peruseTopsForward}> Forward </button>
                 <br/>
-                <div className="dressMeCard"></div>
+                <div className="dressMeCard">
+                    <div className="dMCardBody">
+                        <p>{JSON.stringify(selectedTop)}</p>
+                        <p>{JSON.stringify(selectedBottom)}</p>
+                    </div>
+                    <button className="favBTN">Favorite</button>
+                </div>
                 <br/>
                 <button onClick={this.peruseBottomsBackward}> Back </button>
                 <div className="picker">{JSON.stringify(selectedBottom)}</div>
                 <button onClick={this.peruseBottomsForward}> Forward </button>
-                
-
-
             </div>
         )
     }
