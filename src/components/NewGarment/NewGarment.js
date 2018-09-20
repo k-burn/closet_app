@@ -24,6 +24,8 @@ class NewGarment extends Component{
             white: false,
             pink: false,
             grey: false,
+            brown: false,
+            tan: false,
             winter: false,
             spring: false,
             summer: false,
@@ -135,11 +137,11 @@ class NewGarment extends Component{
                         <input type="checkbox" name="brown"
                         checked={this.state.brown}
                         onChange={this.handleCheckboxChange} />
-                        <label htmlFor="pink">Brown</label>
-                        <input type="checkbox" name="pink"
+                        <label htmlFor="brown">Brown</label>
+                        <input type="checkbox" name="tan"
                         checked={this.state.tan}
                         onChange={this.handleCheckboxChange} />
-                        <label htmlFor="pink">Tan</label>
+                        <label htmlFor="tan">Tan</label>
 
                     </div>
                     <div id="seasonsCheckboxContainer">
