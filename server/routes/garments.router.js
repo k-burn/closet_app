@@ -17,6 +17,30 @@ router.get('/', (req, res) => {
     }
 });
 
+router.get('/tops', (req, res) => {
+    if (req.isAuthenticated()) {
+        const queryText = `SELECT * FROM "garments"
+                            WHERE "garment_type" = 'top';`;
+        pool.query(queryText)
+            .then(response => res.send(response.rows))
+            .catch(error => res.sendStatus(500));
+    } else {
+        res.sendStatus(401);
+    }
+});
+
+router.get('/bottoms', (req, res) => {
+    if (req.isAuthenticated()) {
+        const queryText = `SELECT * FROM "garments"
+                            WHERE "garment_type" = 'bottom';`;
+        pool.query(queryText)
+            .then(response => res.send(response.rows))
+            .catch(error => res.sendStatus(500));
+    } else {
+        res.sendStatus(401);
+    }
+});
+
 /**
  * POST route template
  */
