@@ -2,10 +2,13 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import axios from 'axios';
+import ReactFilestack from 'filestack-react';
 
 
 //class extends components
 class NewGarment extends Component{
+
+    
 
     //constructor
     constructor(props) {
@@ -66,10 +69,31 @@ class NewGarment extends Component{
             alert('Error submitting feedback')
         })
     }
+      
+    onSuccess = (result) => {
+        // handle result of uppy here
+        console.log('filestack submitted', result.filesUploaded);
+        alert('Image added');
+        this.setState({
+            ...this.state,
+            url: result.filesUploaded[0].url
+        })
+        console.log(this.state.url);
+        
+    }
+    
           
 
     //render is what shows up on the page
     render() {
+        //for filestack
+        const options = {
+            accept: 'image/*',
+            maxFiles: 1,
+            storeTo: {
+              location: 's3',
+            },
+          };
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
@@ -85,7 +109,16 @@ class NewGarment extends Component{
                         <option value="bottom">bottom</option>
                     </select>
                     <br/>
-                    <input name="url" onChange={this.handleChange} placeholder="image url"></input>
+                    {/*<input name="url" onChange={this.handleChange} placeholder="image url"></input>
+                    <br/>*/}
+                    <ReactFilestack
+                        apikey='AQW1eg1Y8Qs8h9tXuiSSgz'
+                        buttonText="Add Image"
+                        buttonClass="classname"
+                        options={options}
+                        name="url"
+                        onSuccess={this.onSuccess}
+                    />
                     <br/>
                     <div id="colorsCheckboxContainer">
                         <p>Colors</p>
