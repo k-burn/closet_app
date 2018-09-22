@@ -120,26 +120,26 @@ class MixNMatch extends Component {
         const selectedTop = this.state.tops[this.state.topIndex];
         const selectedBottom = this.state.bottoms[this.state.bottomIndex];
 
-        if (selectedTop) {
+        if (selectedTop && selectedBottom) {
             return (
                 //you can only return one thing, so wrap it all up in one div
                 <div>
                     <Nav />
                     <p>Mix 'n Match View</p>
                     <button onClick={this.peruseTopsBackward}> Back </button>
-                    <img src={selectedTop && selectedTop.image_path} className = "selectorDisplay"/>
+                    <img src={selectedTop && selectedTop.image_path} className = "selectorDisplay" alt= {selectedTop.garment_name}/>
                     <button onClick={this.peruseTopsForward}> Forward </button>
                     <br />
                     <div className="mixMatchCard">
                         <div className="mMCardBody">
-                            <img src={selectedTop && selectedTop.image_path} className= "mMTopImg"/> {/* && delays the appearance of the second thing until the first thing is true */}
-                            <img src={selectedBottom && selectedBottom.image_path} className= "mMBottomImg"/>
+                            <img src={selectedTop && selectedTop.image_path} className= "mMTopImg" alt= {selectedTop.garment_name}/> {/* && delays the appearance of the second thing until the first thing is true */}
+                            <img src={selectedBottom && selectedBottom.image_path} className= "mMBottomImg" alt= {selectedBottom.garment_name}/>
                         </div>
                         <button className="favBTN">Favorite</button>
                     </div>
                     <br />
                     <button onClick={this.peruseBottomsBackward}> Back </button>
-                    <img src={selectedBottom && selectedBottom.image_path} className = "selectorDisplay"/>
+                    <img src={selectedBottom && selectedBottom.image_path} className = "selectorDisplay" alt= {selectedBottom.garment_name}/>
                     <button onClick={this.peruseBottomsForward}> Forward </button>
                 </div>
             )
