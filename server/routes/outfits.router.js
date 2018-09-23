@@ -45,13 +45,13 @@ router.get('/random', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/favorites', (req, res) => {
     if (req.isAuthenticated()) {
         console.log('in garment POST');
         console.log(req.body);
-        const garment = req.body;
-        const queryText = `INSERT INTO "saved_outfits" ("outfit_name", "user_id", "outfit_type", "image_path", "comfort_level") VALUES ($1, $2, $3, $4, $5, $6);`;
-        pool.query(queryText, [garment.name, req.user.id, garment.type, garment.url, garment.comfort])
+        const outfit = req.body;
+        const queryText = `INSERT INTO "saved_outfits" ("top_id", "bottom_id", "user_id") VALUES ($1, $2, $3);`;
+        pool.query(queryText, [outfit.topSelected.id, outfit.bottomSelected.id, req.user.id])
         .then((result)=>{
             res.sendStatus(201);
         })

@@ -13,10 +13,11 @@ const mapStateToProps = state => ({
 });
 
 class UserPage extends Component {
-
+  
   constructor(props) {
     super(props);
     this.state = {
+        city: '',
         current_temp: '',
         humidity: '',
         sky: '' ,
@@ -40,7 +41,7 @@ class UserPage extends Component {
     
     axios({
         method: 'GET', 
-        url: 'http://api.openweathermap.org/data/2.5/forecast?q=Minneapolis,US&APPID=c0ff50f9018d710e46090ab603c45046&units=imperial'
+        url: `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city},US&APPID=c0ff50f9018d710e46090ab603c45046&units=imperial`
       }).then((response) => {
         console.log(response.data.list[0]);
         this.setState({
@@ -57,6 +58,11 @@ class UserPage extends Component {
       });
   }
   
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
 
   logout = () => {
     this.props.dispatch(triggerLogout());
@@ -75,7 +81,9 @@ class UserPage extends Component {
           </h1>
           <p>Your ID is: {this.props.user.id}</p>
           <div id="weatherInfo">
-            <input placeholder="Current City"></input>
+            <input placeholder="Current City" 
+              onChange={this.handleChange}
+              name="city"/>
             <button onClick={this.getWeather}>
               Get Weather
             </button>
@@ -83,8 +91,8 @@ class UserPage extends Component {
             <h4>Current Weather</h4>
             <p>Temperature: {this.state.current_temp} F</p>
             <p>Humidity: {this.state.humidity} %</p>
-            <p>Conditions: {this.state.sky}</p>
-            <p> {this.state.description}</p>
+            <p>Conditions: {this.state.sky}</p> 
+            <p>{this.state.description}</p>
             <p>Wind: {this.state.wind} mph</p>
 
           </div>
@@ -97,7 +105,7 @@ class UserPage extends Component {
         </div>
       );
     }
-
+    
     return (
       <div>
         <Nav />

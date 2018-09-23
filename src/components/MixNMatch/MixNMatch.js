@@ -15,6 +15,16 @@ class MixNMatch extends Component {
             bottoms: [],
             topIndex: 0,
             bottomIndex: 0,
+            topSelected: '',
+            bottomSelected: '',
+            addNewOutfit: false,
+            winter: false,
+            spring: false,
+            summer: false,
+            fall: false,
+            goodFor: [],
+            minTemp: -10 ,
+            maxTemp: 80 ,
 
         }
     }
@@ -99,12 +109,29 @@ class MixNMatch extends Component {
                 bottomIndex: this.state.bottomIndex - 1,
             })
         }
+    };
+
+    sendFavToDatabase =() => { 
+        console.log('in favoriteOutfit')
+        axios({
+            method: 'POST',
+            url: '/api/outfits/favorites',
+            data: this.state
+        }).then((response)=>{
+            console.log('Garment was successfully saved', response);
+        }).catch((error)=>{
+            console.log('an error has occurred when trying to save the outfit', error);
+            alert('Error saving outfit')
+        })
     }
 
-    handleFavoriteClick = () => {
-
+    handleFavorite = () => {
+        this.setState({
+            topSelected: this.state.tops[this.state.topIndex],
+            bottomSelected: this.state.bottoms[this.state.bottomIndex],
+            addNewOutfit: true,
+        })
     }
-
 
     //componentDidMount
     componentDidMount() {
@@ -113,19 +140,31 @@ class MixNMatch extends Component {
         this.getBottoms();
 
     }
+    handleCheckboxChange= (event) => {
+        const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+        this.setState({
+            [event.target.name]: value
+          })
+    }
+    //need to add a function to push entries in the GoodFor form into an array
+    //pushToGoodFor = () => {
+
+    //}
     //arrow functions
 
     //render is what shows up on the page
     render() {
         const selectedTop = this.state.tops[this.state.topIndex];
         const selectedBottom = this.state.bottoms[this.state.bottomIndex];
+        const showAddForm = this.state.addNewOutfit;
 
-        if (selectedTop && selectedBottom) {
+        if (selectedTop && selectedBottom && !showAddForm) {
             return (
                 //you can only return one thing, so wrap it all up in one div
                 <div>
                     <Nav />
                     <p>Mix 'n Match View</p>
+                    <p>{JSON.stringify(this.state.topSelected)}</p>
                     <button onClick={this.peruseTopsBackward}> Back </button>
                     <img src={selectedTop && selectedTop.image_path} className = "selectorDisplay" alt= {selectedTop.garment_name}/>
                     <button onClick={this.peruseTopsForward}> Forward </button>
@@ -135,7 +174,7 @@ class MixNMatch extends Component {
                             <img src={selectedTop && selectedTop.image_path} className= "mMTopImg" alt= {selectedTop.garment_name}/> {/* && delays the appearance of the second thing until the first thing is true */}
                             <img src={selectedBottom && selectedBottom.image_path} className= "mMBottomImg" alt= {selectedBottom.garment_name}/>
                         </div>
-                        <button className="favBTN">Favorite</button>
+                        <button className="favBTN" onClick= {this.handleFavorite}>Favorite</button>
                     </div>
                     <br />
                     <button onClick={this.peruseBottomsBackward}> Back </button>
@@ -144,7 +183,49 @@ class MixNMatch extends Component {
                 </div>
             )
         } 
-        return <p> Cher: Christian said he’d call the next day, but in boy time that meant Thursday...</p>;
+        else if (selectedTop && selectedBottom && showAddForm) {
+            return (
+                <div>
+                     <Nav />
+                    <p>Add Form</p>
+                    <form>
+                        <input placeholder="goodFor"></input>
+                        <div>
+                            Chip Box
+                        </div>
+                        <div id="seasonsCheckboxContainerOutfit">
+                            <p>Season</p>
+                            <input type="checkbox" name="winter"
+                            checked={this.state.winter}
+                            onChange={this.handleCheckboxChange}/>
+                            <label htmlFor="winter">Winter</label>
+                            <br/>
+                            <input type="checkbox" name="spring"
+                            checked={this.state.spring}
+                            onChange={this.handleCheckboxChange}/>
+                            <label htmlFor="spring">Spring</label>
+                            <br/>
+                            <input type="checkbox" name="summer"
+                            checked={this.state.summer}
+                            onChange={this.handleCheckboxChange}/>
+                            <label htmlFor="summer">Summer</label>
+                            <br/>
+                            <input type="checkbox" name="fall"
+                            checked={this.state.fall}
+                            onChange={this.handleCheckboxChange}/>
+                            <label htmlFor="fall">Fall</label>
+                        </div> 
+                        <input placeholder="Minimum temperature (F)"/>
+                        <input placeholder= "Maximum temperature (F)"/>
+                        <input placeholder ="caption"/>
+                        <input type="submit"/>
+                    </form>
+                </div>
+            )
+        }
+        else {   
+            return <p> Cher: Christian said he’d call the next day, but in boy time that meant Thursday...</p>;
+        }
     }
 }
 
