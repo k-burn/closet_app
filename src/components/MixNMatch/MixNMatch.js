@@ -140,7 +140,18 @@ class MixNMatch extends Component {
 
     handleOutfitFormSubmit = () => {
         this.sendFavToDatabase().then(this.setState({
-            addNewOutfit: false,
+            addNewOutfit: false, //this should default to false, but set to true to test form view
+            winter: false,
+            spring: false,
+            summer: false,
+            fall: false,
+            goodFor: [],
+            minTemp: -10 ,
+            maxTemp: 80 ,
+            comfort: 5,
+            formality: 5,
+            goodForInput: '',
+            caption:''
         }))
 
     }
