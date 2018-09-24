@@ -17,7 +17,7 @@ class MixNMatch extends Component {
             bottomIndex: 0,
             topSelected: '',
             bottomSelected: '',
-            addNewOutfit: false,
+            addNewOutfit: false, //this should default to false, but set to true to test form view
             winter: false,
             spring: false,
             summer: false,
@@ -25,6 +25,10 @@ class MixNMatch extends Component {
             goodFor: [],
             minTemp: -10 ,
             maxTemp: 80 ,
+            comfort: 5,
+            formality: 5,
+            goodForInput: '',
+            captions:'',
 
         }
     }
@@ -111,8 +115,9 @@ class MixNMatch extends Component {
         }
     };
 
-    sendFavToDatabase =() => { 
-        console.log('in favoriteOutfit')
+    sendFavToDatabase = async() => { 
+        
+        console.log('in sendFavToDatabase')
         axios({
             method: 'POST',
             url: '/api/outfits/favorites',
@@ -125,12 +130,32 @@ class MixNMatch extends Component {
         })
     }
 
-    handleFavorite = () => {
+    handleFavoriteClick = () => {
         this.setState({
             topSelected: this.state.tops[this.state.topIndex],
             bottomSelected: this.state.bottoms[this.state.bottomIndex],
             addNewOutfit: true,
         })
+    }
+
+    handleOutfitFormSubmit = () => {
+        this.sendFavToDatabase().then(this.setState({
+            addNewOutfit: false,
+        }))
+
+    }
+
+   pushToChipBox = (event) => {
+       event.preventDefault();
+        this.setState({
+            goodFor: [...this.state.goodFor, this.state.goodForInput]
+        })
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+          })
     }
 
     //componentDidMount
@@ -146,10 +171,7 @@ class MixNMatch extends Component {
             [event.target.name]: value
           })
     }
-    //need to add a function to push entries in the GoodFor form into an array
-    //pushToGoodFor = () => {
-
-    //}
+    
     //arrow functions
 
     //render is what shows up on the page
@@ -174,7 +196,7 @@ class MixNMatch extends Component {
                             <img src={selectedTop && selectedTop.image_path} className= "mMTopImg" alt= {selectedTop.garment_name}/> {/* && delays the appearance of the second thing until the first thing is true */}
                             <img src={selectedBottom && selectedBottom.image_path} className= "mMBottomImg" alt= {selectedBottom.garment_name}/>
                         </div>
-                        <button className="favBTN" onClick= {this.handleFavorite}>Favorite</button>
+                        <button className="favBTN" onClick= {this.handleFavoriteClick}>Favorite</button>
                     </div>
                     <br />
                     <button onClick={this.peruseBottomsBackward}> Back </button>
@@ -188,10 +210,14 @@ class MixNMatch extends Component {
                 <div>
                      <Nav />
                     <p>Add Form</p>
-                    <form>
-                        <input placeholder="goodFor"></input>
+                    {/*{JSON.stringify(this.state)}*/}
+                    <form onSubmit={this.handleOutfitFormSubmit}>
+                        <input name="goodForInput" placeholder="goodFor" onChange={this.handleChange} value={this.state.goodForInput}  ></input>
+                        <button id="addGoodForBTN" onClick={this.pushToChipBox}>Add Key Word</button>
                         <div>
-                            Chip Box
+                            chip box
+                            {JSON.stringify(this.state.goodFor)}
+                            
                         </div>
                         <div id="seasonsCheckboxContainerOutfit">
                             <p>Season</p>
@@ -217,7 +243,29 @@ class MixNMatch extends Component {
                         </div> 
                         <input placeholder="Minimum temperature (F)"/>
                         <input placeholder= "Maximum temperature (F)"/>
-                        <input placeholder ="caption"/>
+                        <br/>
+                        <label htmlFor="formality">Formality</label>
+                        <input 
+                        name="formality"
+                        className= "slider"
+                        type="range" 
+                        min="1" max="10" 
+                        value={this.state.formality}
+                        onChange={this.handleChange}
+                        step="1"/>
+                        <br/>
+                        <label htmlFor="comfort">Comfort</label>
+                        <input 
+                        name="comfort"
+                        className= "slider"
+                        type="range" 
+                        min="1" max="10" 
+                        value={this.state.comfort}
+                        onChange={this.handleChange}
+                        step="1"/>
+                        <br/>
+                        <input name="caption" placeholder ="caption" onChange={this.handleChange}/>
+                        <br/>
                         <input type="submit"/>
                     </form>
                 </div>

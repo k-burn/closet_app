@@ -7,3 +7,5 @@ const weatherData = (state = {}, action)=>{
     }
     return state;
 }
+
+export default weatherData;

@@ -50,8 +50,8 @@ router.post('/favorites', (req, res) => {
         console.log('in garment POST');
         console.log(req.body);
         const outfit = req.body;
-        const queryText = `INSERT INTO "saved_outfits" ("top_id", "bottom_id", "user_id") VALUES ($1, $2, $3);`;
-        pool.query(queryText, [outfit.topSelected.id, outfit.bottomSelected.id, req.user.id])
+        const queryText = `INSERT INTO "saved_outfits" ("top_id", "bottom_id", "user_id", "notes", "min_temp", "max_temp", "winter", "spring", "summer", "fall", "formality", "comfort") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);`;
+        pool.query(queryText, [outfit.topSelected.id, outfit.bottomSelected.id, req.user.id, outfit.caption, outfit.minTemp, outfit.maxTemp, outfit.winter, outfit.spring, outfit.summer, outfit.fall, outfit.formality, outfit.comfort])
         .then((result)=>{
             res.sendStatus(201);
         })
