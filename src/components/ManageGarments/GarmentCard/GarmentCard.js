@@ -26,6 +26,24 @@ class GarmentCard extends Component{
     }
    
     render(){
+        const winter=this.props.garment.winter
+        const spring=this.props.garment.spring
+        const summer=this.props.garment.summer
+        const fall=this.props.garment.fall
+        const red=this.props.garment.red
+        const orange=this.props.garment.orange
+        const yellow=this.props.garment.yellow
+        const green=this.props.garment.green
+        const blue=this.props.garment.blue
+        const purple=this.props.garment.purple
+        const white=this.props.garment.white
+        const grey=this.props.garment.grey
+        const black=this.props.garment.black
+        const tan=this.props.garment.tan
+        const brown=this.props.garment.brown
+        const pink=this.props.garment.pink
+
+
         return(
             
             <div className="garmentCard">
@@ -36,6 +54,8 @@ class GarmentCard extends Component{
                     <div className= "garmentContent">
                         <p>Comfort Level: {this.props.garment.comfort_level}</p>
                         <p>Wash Instructions: {this.props.garment.wash_instructions}</p>
+                        <p>Seasons: {winter && 'winter'} {spring && ' spring'} {summer && ' summer'} {fall && ' fall'}</p>
+                        <p>Colors: {red && 'red'} {pink && 'pink'} {orange && 'orange'} {yellow && 'yellow'} {green && 'green'} {blue && 'blue'} {purple && 'purple'} {black && 'black'} {grey && 'grey'} {white && 'white'} {tan && 'tan'} {brown && 'brown'} </p>
                     </div>
                     :
                     <div className= "garmentContent">
