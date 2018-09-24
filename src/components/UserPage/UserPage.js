@@ -38,7 +38,6 @@ class UserPage extends Component {
 
   getWeather = () => {
     console.log('in getWEATHER');
-    
     axios({
         method: 'GET', 
         url: `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city},US&APPID=c0ff50f9018d710e46090ab603c45046&units=imperial`
@@ -51,7 +50,6 @@ class UserPage extends Component {
           description: response.data.list[0].weather[0].description ,
           wind: response.data.list[0].wind.speed 
         })
-
       }).catch(function(error){
         console.log('Error in getWeather:', error);
         alert('Error Getting Weather')

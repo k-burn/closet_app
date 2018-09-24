@@ -12,7 +12,6 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const garmentRouter = require ('./routes/garments.router')
 const outfitRouter = require ('./routes/outfits.router')
-const weatherRouter = require ('./routes/weather.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,7 +28,6 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/garments', garmentRouter);
 app.use('/api/outfits', outfitRouter);
-app.use('/api/weather', weatherRouter);
 
 // Serve static files
 app.use(express.static('build'));
