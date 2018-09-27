@@ -21,17 +21,17 @@ class Header extends Component{
       if (this.props.user.userName) {
         welcomeStatement = (
           <div id="welcomeStatement">
-            <h4 id="welcomeHeader">
+            <h1 id="welcomeHeader">
               Welcome, { this.props.user.userName }!
-            </h4>
+            </h1>
             <br/>
             <button id="logoutBTN" onClick={this.logout}>Logout</button>
           </div>)
       }
         return(
             //you can only return one thing, so wrap it all up in one div
-            <div>
-                <h1>the Closet App</h1>
+            <div id="headerContainer">
+                <h1 id="logo"><span id="the">the</span> Closet App</h1>
                 { welcomeStatement } 
             </div>
         )

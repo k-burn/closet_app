@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import axios from 'axios';
 import DressMeCard from './DressMeCard/DressMeCard.js'
+import Header from '../../components/Header/Header';
 
 
 //class extends components
@@ -52,6 +53,7 @@ class DressMe extends Component{
         return(
             //you can only return one thing, so wrap it all up in one div
             <div>
+                <Header title="Project Base" />
                 <Nav />
                 <div>
                     <p>Dress Me View</p>

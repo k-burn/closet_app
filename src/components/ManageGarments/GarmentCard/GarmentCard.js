@@ -26,6 +26,7 @@ class GarmentCard extends Component{
     }
    
     render(){
+        const showDetails = this.state.showDetails
         const winter=this.props.garment.winter
         const spring=this.props.garment.spring
         const summer=this.props.garment.summer
@@ -50,7 +51,7 @@ class GarmentCard extends Component{
                 {/*This will display the image of the garment in a card format*/}
                 <h3>{this.props.garment.garment_name}</h3>
                 
-                {this.state.showDetails ? 
+                {showDetails ? 
                     <div className= "garmentContent">
                         <p>Comfort Level: {this.props.garment.comfort_level}</p>
                         <p>Wash Instructions: {this.props.garment.wash_instructions}</p>
@@ -65,7 +66,7 @@ class GarmentCard extends Component{
                 <br/>
                 <button onClick={() => { if (window.confirm('Are you sure you wish to delete this garment?')) this.handleDeleteClick()}}>Delete</button>
                 <button >Edit</button>
-                <button onClick={this.handleMoreInfoClick}>More Info</button>
+                <button onClick={this.handleMoreInfoClick}>{showDetails ? 'Show Image' : 'More Info' }</button>
             </div>
         )}
 

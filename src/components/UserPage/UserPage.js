@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import axios from 'axios';
+import './UserPage.css'
 
 
 const mapStateToProps = state => ({
@@ -105,9 +106,13 @@ class UserPage extends Component {
     }
     
     return (
-      <div>
+      <div >
+        <Header title="Project Base" />
         <Nav />
-        { content }
+        <br/>
+        <div id="userContent">
+          { content }
+        </div>
       </div>
     );
   }

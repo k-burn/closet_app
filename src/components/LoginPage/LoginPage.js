@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import './LoginPage.css';
 
 
 const mapStateToProps = state => ({
@@ -23,6 +24,8 @@ class LoginPage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch(clearError());
+  
+  
   }
 
   componentDidUpdate() {
@@ -60,42 +63,47 @@ class LoginPage extends Component {
     }
     return (<span />);
   }
-
+  
   render() {
     return (
-      <div>
-        { this.renderAlert() }
-        <form onSubmit={this.login}>
+      <div id="viewDiv">
+        <form id="loginForm" onSubmit={this.login}>
+          <h1 id="logoLogin"><span id="the">the</span> Closet App</h1>
+          <br/>
           <h1>Login</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
+          <div id="loginInputs">
+            <div >
+              <label htmlFor="username">
+                Username:
+                <input
+                  type="text"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleInputChangeFor('username')}
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="password">
+                Password:
+                <input
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleInputChangeFor('password')}
+                />
+              </label>
+            </div>
+            <p className="alert">{ this.renderAlert() }</p>
+            <div>
               <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                id="loginBTN"
+                type="submit"
+                name="submit"
+                value="Log In"
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
-            <Link to="/register">Register</Link>
+              <Link to="/register">Register</Link>
+            </div>
           </div>
         </form>
       </div>
