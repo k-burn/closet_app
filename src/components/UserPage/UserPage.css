@@ -1,4 +1,25 @@
 #userContent{
     position: absolute;
     left: 10%;
+    margin-top: 1%;
+}
+
+#weatherBTN{
+    font-size: 16px;
+    padding: 8px;
+    background-color: #273847;
+    color: white;
+    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
+    
+}
+#weatherBTN:hover{
+    background-color: #2b4964;
+    cursor: pointer;
+    color: white;
+    
+}
+
+#weatherBTN:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }

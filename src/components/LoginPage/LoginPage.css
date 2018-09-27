@@ -75,6 +75,12 @@ h1{
 #loginBTN:hover{
     background-color: #9dbed8;
     cursor: pointer;
+    
+}
+
+#loginBTN:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 .alert{
     color: #993955;

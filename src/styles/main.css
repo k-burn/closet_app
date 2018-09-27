@@ -50,6 +50,8 @@ input[type="submit"] {
   background-color: #7e99ad;
   width: 100%;
   border-radius: 0px;
+  position:relative;
+  display: inline-block;
 }
 
 ul {
@@ -59,21 +61,4 @@ ul {
     overflow: hidden;
 }
 
-li {
-    float: left;
-}
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    text-decoration: underline;
-    color: #eee;
-}

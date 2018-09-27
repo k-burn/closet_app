@@ -76,30 +76,25 @@ class UserPage extends Component {
           <h1
             id="welcome"
           >
-            Welcome, { this.props.user.userName }!
+             { this.props.user.userName }'s Closet 
           </h1>
           <p>Your ID is: {this.props.user.id}</p>
           <div id="weatherInfo">
             <input placeholder="Current City" 
               onChange={this.handleChange}
               name="city"/>
-            <button onClick={this.getWeather}>
+            <button id="weatherBTN" onClick={this.getWeather}>
               Get Weather
             </button>
             <p>{JSON.stringify(this.state)}</p>
             <h4>Current Weather</h4>
-            <p>Temperature: {this.state.current_temp} F</p>
+            <p>Temperature: {this.state.current_temp}°F</p>
             <p>Humidity: {this.state.humidity} %</p>
             <p>Conditions: {this.state.sky}</p> 
             <p>{this.state.description}</p>
             <p>Wind: {this.state.wind} mph</p>
 
           </div>
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
         
         </div>
       );

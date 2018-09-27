@@ -4,6 +4,22 @@ ul{
     left: 10%;
 
 }
-.navbar{
-   
+li {
+    float: left;
+    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #5d788d;
+    transform: scale(1.1)
 }
