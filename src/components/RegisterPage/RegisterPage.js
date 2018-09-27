@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './RegisterPage.css';
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -67,38 +68,42 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <div id="registerView">
         {this.renderAlert()}
-        <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
+        <form id="registerForm" onSubmit={this.registerUser}>
+          <h1 id="registerUser">Register User</h1>
+          <br/>
+          <div id="registerInputs">
+            <div >
+              <label htmlFor="username">
+                Username:
+                <input
+                  type="text"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleInputChangeFor('username')}
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="password">
+                Password:
+                <input
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleInputChangeFor('password')}
+                />
+              </label>
+            </div>
+            <div>
               <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                id="registerBTN"
+                type="submit"
+                name="submit"
+                value="Register"
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              type="submit"
-              name="submit"
-              value="Register"
-            />
+            </div>
             <Link to="/home">Cancel</Link>
           </div>
         </form>

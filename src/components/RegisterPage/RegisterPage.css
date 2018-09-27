@@ -1,10 +1,9 @@
-
 html, body {
     height: 100%;
 }
 
 
-#loginForm{
+#registerForm{
     border: 5px #2F2F2F;
     border-style: dashed;
     background-color: rgb(226, 226, 226);
@@ -13,15 +12,6 @@ html, body {
     margin-top: 10vh;
     overflow: scroll;
     
-}
-#loginInputs{
-    border: 3px white;
-    border-style: inset;
-    text-align: center;
-    margin: 10%;
-    padding: 3vh;
-    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
-    display: inline-block;
 }
 
 h1{
@@ -39,7 +29,7 @@ h1{
     overflow-wrap: break-word;
     
 }
-#viewDiv{
+#registerView{
     height: 100vh;
     background-image: url("https://s3-eu-west-1.amazonaws.com/images.linnlive.com/46f002540b02bbcc49ff64da6bbb6eee/23aa2f70-cfcd-4f43-9b84-cc4646b18ce1.jpg");
     background-size: cover;
@@ -64,7 +54,7 @@ h1{
     left: 0;
 }
 
-#loginBTN{
+#registerBTN{
     background-color: #7e99ad;
     border: none;
     font-size: 16px;
@@ -73,17 +63,27 @@ h1{
     font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
     
 }
-#loginBTN:hover{
+#registerBTN:hover{
     background-color: #9dbed8;
     cursor: pointer;
     
 }
 
-#loginBTN:active{
+#registerTN:active{
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 .alert{
     color: #993955;
     font-size: 14px;
+}
+#registerInputs{
+    border: 3px white inset;
+    height: 30vh;
+    padding-top: 5vh;
+    overflow: scroll;
+}
+#registerUser{
+    margin-top: 4vh;
+    margin-bottom: 3vh;
 }
