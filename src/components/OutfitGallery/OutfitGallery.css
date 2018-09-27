@@ -1,0 +1,10 @@
+#manageOutfitsContainer{
+    padding-left: 5%;
+    padding-right: 5%;
+    
+}
+#outfitDisplayContainer{
+    display:block;
+    width: 99%;
+    text-align: center;
+}

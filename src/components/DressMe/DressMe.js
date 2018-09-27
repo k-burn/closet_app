@@ -56,8 +56,6 @@ class DressMe extends Component{
                 <Header title="Project Base" />
                 <Nav />
                 <div id="dressMeContainer">
-                    <p>Dress Me View</p>
-                    {JSON.stringify(this.state)}
                     <br/>
                     {this.state.dressMeClicked ? null : <button id="dressMeBTN" onClick={this.handleDressMeClick}>Dress Me</button>}
                     {this.state.dressMeClicked ? <div id="dressMePressedContainer">

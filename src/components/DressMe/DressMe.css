@@ -10,6 +10,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
     margin: auto;
     display: inline-block;
+    margin-top: 10%;
 }
 
 #dressMeBTN:hover{
@@ -23,7 +24,6 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
 }
 #dressMeContainer{
-    border: 2px black dotted;
     text-align: center;
 }
 #dressMePressedContainer{
@@ -36,7 +36,7 @@
     font-size: 30px;
     color: #993955;
     overflow: hidden;
-    border: 2px #993955 dashed;
+    border: 4px #993955 solid;
     
 }
 #yesBTN .wearIt{
@@ -46,7 +46,7 @@
     width: 185px;
     border-radius: 30px 30px 30px 30px;
     transition-duration: .3s;
-    border: 2px #993955 solid;
+    border: 4px #993955 solid;
 }
 #yesBTN:hover .wearIt{
     display: inline;
@@ -66,7 +66,7 @@
     font-size: 30px;
     color: #993955;
     overflow: hidden;
-    border: 2px #993955 dashed;
+    border: 4px #993955 solid;
     
 }
 #noBTN .asIF{
@@ -76,7 +76,7 @@
     width: 165px;
     border-radius: 30px 30px 30px 30px;
     transition-duration: .3s;
-    border: 2px #993955 solid;
+    border: 4px #993955 solid;
     margin-left: -12px;
 }
     
@@ -92,8 +92,7 @@
 }
 #dressMeDisplayContainer{
     display: inline-block;
-    width: 350px;
-    border: red 2px solid;
+    width: 25vw;
     text-align: center;
 }
 #btnContainerY{
@@ -109,11 +108,27 @@
     text-align: right;
 }
 .dressMeOutfitCard {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: #273847 solid 10px;
+    outline: 5px solid #273847;
+    outline-offset: -20px;
     transition: 0.3s;
-    width: 300px;
-    height: 500px;
+    display: block;
     margin: 20px;
-    display: inline-block;
+    padding: 20px;
+
+   
+
+}
+.topImgDM{
+    height: 25vh;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+
+}
+.bottomImgDM{
+    height: 25vh;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
 }
