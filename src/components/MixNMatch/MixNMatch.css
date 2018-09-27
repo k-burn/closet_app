@@ -1,7 +1,3 @@
-.picker{
-    width: 100px;
-}
-
 .mixMatchCard {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -18,24 +14,68 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-}
 .favBTN {
-    position: absolute;
     right:    10px;
     bottom:   10px;
 }
-.mMTopImg{
-    height: 200px;
-    display: inline-block;
-
-}
-.mMBottomImg{
-    height: 300px;
-    display: inline-block;
-}
 .selectorDisplay{
-    height: 100px;
+    height: 25vh; 
+    margin-top: 1vh;
+}
+.imgView{
+    height: 28vh;
+    width: 22vw;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+}
+#favBTN{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #993955;
+    overflow: hidden;
+    border: 4px #993955 solid;
+    
+}
+#favBTN #favText{
+    display: none;
+}
+#favBTN:hover {
+    width: 190px;
+    border-radius: 30px 30px 30px 30px;
+    transition-duration: .3s;
+    border: 4px #993955 solid;
+}
+#favBTN:hover #favText{
+    display: inline;
+    font-size: 20px;
+    margin-right: -15px;
+}
+
+#favBTN:active{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    transform: translateY(6px);
+}
+#mixNMatchContent{
+    display: inline-block
+}
+#viewPort{
+    text-align: center;
+}
+.forwardBTN{
+    border: none !important;
+}
+.forwardBTN:focus{
+    outline: none;
+}
+.forwardImg{
+    height: 15vh;
+    width: 10vw;
+    transform: rotate(180deg);
+}
+.backwardImg{
+    height: 15vh;
+    width: 10vw;
 }

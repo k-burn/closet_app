@@ -195,26 +195,26 @@ class MixNMatch extends Component {
         if (selectedTop && selectedBottom && !showAddForm) {
             return (
                 //you can only return one thing, so wrap it all up in one div
-                <div>
+                <div id="viewPort">
                     <Header title="Project Base" />
                     <Nav />
-                    <p>Mix 'n Match View</p>
-                    <p>{JSON.stringify(this.state.topSelected)}</p>
-                    <button onClick={this.peruseTopsBackward}> Back </button>
-                    <img src={selectedTop && selectedTop.image_path} className = "selectorDisplay" alt= {selectedTop.garment_name}/>
-                    <button onClick={this.peruseTopsForward}> Forward </button>
-                    <br />
-                    <div className="mixMatchCard">
-                        <div className="mMCardBody">
-                            <img src={selectedTop && selectedTop.image_path} className= "mMTopImg" alt= {selectedTop.garment_name}/> {/* && delays the appearance of the second thing until the first thing is true */}
-                            <img src={selectedBottom && selectedBottom.image_path} className= "mMBottomImg" alt= {selectedBottom.garment_name}/>
+                    <div id="mixNMatchContent">
+                        <button className="forwardBTN" onClick={this.peruseTopsBackward}> <img className="backwardImg" src={require("./backwardArrow.svg")}/> </button>
+                        <div className="imgView">
+                            <img src={selectedTop && selectedTop.image_path} className = "selectorDisplay" alt= {selectedTop.garment_name}/>
                         </div>
-                        <button className="favBTN" onClick= {this.handleFavoriteClick}>Favorite</button>
+                        <button className="forwardBTN" onClick={this.peruseTopsForward}> <img className="forwardImg" src={require("./backwardArrow.svg")}/></button>
+                        <br />
+                        <br />
+                        <button className="forwardBTN" onClick={this.peruseBottomsBackward}> <img className="backwardImg" src={require("./backwardArrow.svg")}/>  </button>
+                        <div className="imgView">
+                            <img src={selectedBottom && selectedBottom.image_path} className = "selectorDisplay" alt= {selectedBottom.garment_name}/>
+                        </div>
+                        <button className="forwardBTN" onClick={this.peruseBottomsForward}> <img className="forwardImg" src={require("./backwardArrow.svg")}/></button>
+                        <br/>
+                        <br/>
+                        <button id="favBTN" onClick= {this.handleFavoriteClick}>♥ <span id="favText">Add Favorite   </span></button>
                     </div>
-                    <br />
-                    <button onClick={this.peruseBottomsBackward}> Back </button>
-                    <img src={selectedBottom && selectedBottom.image_path} className = "selectorDisplay" alt= {selectedBottom.garment_name}/>
-                    <button onClick={this.peruseBottomsForward}> Forward </button>
                 </div>
             )
         } 
