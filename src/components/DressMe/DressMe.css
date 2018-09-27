@@ -1,0 +1,119 @@
+#dressMeBTN{
+    border: 7px #7e99ad outset;
+    background-color: transparent;
+    color:#273847;
+    height: 100px;
+    width: 200px;
+    font-size: 30px;
+    font-weight:bold;
+    font-family: 'Megrim', cursive;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    margin: auto;
+    display: inline-block;
+}
+
+#dressMeBTN:hover{
+    box-shadow: 0 4px 15px 0 rgba(0,0,0,1);
+    background-image: linear-gradient(-50deg, #27384707, rgba(255, 255, 255, 0.11)) ;
+    cursor: pointer;
+}
+#dressMeBTN:active{
+    transform: translateY(6px);
+    background-image: linear-gradient(-50deg, #2738472a, rgba(255, 255, 255, 0.11)) ;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+}
+#dressMeContainer{
+    border: 2px black dotted;
+    text-align: center;
+}
+#dressMePressedContainer{
+    display: inline-block;
+}
+#yesBTN{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #993955;
+    overflow: hidden;
+    border: 2px #993955 dashed;
+    
+}
+#yesBTN .wearIt{
+    display: none;
+}
+#yesBTN:hover {
+    width: 185px;
+    border-radius: 30px 30px 30px 30px;
+    transition-duration: .3s;
+    border: 2px #993955 solid;
+}
+#yesBTN:hover .wearIt{
+    display: inline;
+    font-size: 16px;
+    margin-right: -15px;
+}
+
+#yesBTN:active{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    transform: translateY(6px);
+
+}
+#noBTN{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #993955;
+    overflow: hidden;
+    border: 2px #993955 dashed;
+    
+}
+#noBTN .asIF{
+    display:none;
+}
+#noBTN:hover {
+    width: 165px;
+    border-radius: 30px 30px 30px 30px;
+    transition-duration: .3s;
+    border: 2px #993955 solid;
+    margin-left: -12px;
+}
+    
+#noBTN:hover .asIF{
+    display: inline;
+    font-size: 16px;     
+}
+
+#noBTN:active{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    transform: translateY(6px);
+
+}
+#dressMeDisplayContainer{
+    display: inline-block;
+    width: 350px;
+    border: red 2px solid;
+    text-align: center;
+}
+#btnContainerY{
+    display: inline-block;
+    width: 20vw;
+    text-align: left;
+    padding-left: 5px;
+    overflow: hidden;
+}
+#btnContainerN{
+    display: inline-block;
+    width: 20vw;
+    text-align: right;
+}
+.dressMeOutfitCard {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    height: 500px;
+    margin: 20px;
+    display: inline-block;
+}

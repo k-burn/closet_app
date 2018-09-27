@@ -5,7 +5,7 @@ class DressMeCard extends Component{
    
     render(){
         return(
-            <div className="outfitCard">
+            <div className="dressMeOutfitCard">
                 {/*This will display the image of the garment in a card format*/}
                 
                 <h3>Top id: {this.props.outfit.top_id}</h3>

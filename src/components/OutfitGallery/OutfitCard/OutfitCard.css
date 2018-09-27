@@ -3,7 +3,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 300px;
-    height: 500px;
+    height: 400px;
     margin: 20px;
     display: inline-block;
 }
@@ -25,4 +25,10 @@
 .bottomImg{
     height: 125px;
     display: inline-block;
+}
+#outfitDisplayContainer{
+    display:block;
+    border: 2px solid red;
+    width: 100%;
+    text-align: center;
 }

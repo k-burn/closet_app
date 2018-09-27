@@ -4,7 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import axios from 'axios';
 import DressMeCard from './DressMeCard/DressMeCard.js'
 import Header from '../../components/Header/Header';
-
+import './DressMe.css';
 
 //class extends components
 class DressMe extends Component{
@@ -55,22 +55,28 @@ class DressMe extends Component{
             <div>
                 <Header title="Project Base" />
                 <Nav />
-                <div>
+                <div id="dressMeContainer">
                     <p>Dress Me View</p>
                     {JSON.stringify(this.state)}
                     <br/>
-                    {this.state.dressMeClicked ? null : <button id="dressMe" onClick={this.handleDressMeClick}>Dress Me</button>}
-                    <div id="outfitDisplayContainer">
-                    {/* This will be where the cards with each garment will be displayed. 
-                        cards will be mapped over here and will appear in a grid*/}
-                     {this.state.outfit.map((outfit, i)=>{
-                                return(
-                                    <DressMeCard key= {i} outfit={outfit}/>
-                                );
+                    {this.state.dressMeClicked ? null : <button id="dressMeBTN" onClick={this.handleDressMeClick}>Dress Me</button>}
+                    {this.state.dressMeClicked ? <div id="dressMePressedContainer">
+                        <div id="btnContainerN">
+                            <button id="noBTN" onClick= {this.getRandomOutfit}> X <span className="asIF">Ugh, as IF!</span> </button>
+                        </div>
+                        <div id="dressMeDisplayContainer">
+                        {/* This will be where the cards with each garment will be displayed. 
+                            cards will be mapped over here and will appear in a grid*/}
+                            {this.state.outfit.map((outfit, i)=>{
+                                    return(
+                                        <DressMeCard key= {i} outfit={outfit}/>
+                                    );
                             })}
-                    </div>
-                    {this.state.dressMeClicked ? <button onClick= {this.getRandomOutfit}> Ugh, as IF! </button> : null}
-                    {this.state.dressMeClicked ? <button onClick= {this.handleWearIt}> Wear It! </button> : null}
+                        </div>
+                        <div id="btnContainerY">
+                            <button id="yesBTN" onClick= {this.handleWearIt}> ♥ <span className="wearIt">Wear it today!</span> </button>
+                        </div>
+                    </div> : null}
                 </div>
             </div>
         )
