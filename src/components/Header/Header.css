@@ -25,7 +25,7 @@
     transform: translateY(4px);
 }
 #logo{
-    font-size: 50px;
+    font-size: 60px;
     color: #993955;
     margin-left: 10%;
     display: inline-block;
@@ -37,6 +37,6 @@
 
 }
 #headerContainer{
-    padding-top: 50px;
+    padding-top: 30px;
     width: 80%;
 }

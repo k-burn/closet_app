@@ -3,7 +3,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 250px;
-    height: 305px;
+    height: 325px;
     margin: 20px;
     display: inline-block;
 }
@@ -26,4 +26,17 @@
 
 .garmentContent{
     height: 200px;
+}
+.imgIcon{
+    height: 3vh;
+}
+.imgIcon:active{
+    height: 2vh;
+}
+.infoBTN{
+    border: none;
+    height: 3vh;
+}
+.infoBTN:focus{
+    outline: none;
 }

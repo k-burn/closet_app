@@ -4,6 +4,7 @@ import Nav from '../../components/Nav/Nav';
 import axios from 'axios';
 import ReactFilestack from 'filestack-react';
 import Header from '../../components/Header/Header';
+import './NewGarment.css';
 
 
 //class extends components

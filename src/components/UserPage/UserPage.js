@@ -24,6 +24,7 @@ class UserPage extends Component {
         sky: '' ,
         description: '',
         wind: '',
+        code: null,
     };
   }
   
@@ -49,7 +50,8 @@ class UserPage extends Component {
           humidity: response.data.list[0].main.humidity,
           sky: response.data.list[0].weather[0].main ,
           description: response.data.list[0].weather[0].description ,
-          wind: response.data.list[0].wind.speed 
+          wind: response.data.list[0].wind.speed ,
+          code: response.data.list[0].weather[0].id ,
         })
       }).catch(function(error){
         console.log('Error in getWeather:', error);
@@ -69,6 +71,11 @@ class UserPage extends Component {
 
   render() {
     let content = null;
+    let description = this.state.description;
+    let code = this.state.code;
+    let wind = this.state.wind;
+    let sky = this.state.sky;
+    let currentTemp= this.state.current_temp;
 
     if (this.props.user.userName) {
       content = (
@@ -80,22 +87,43 @@ class UserPage extends Component {
           </h1>
           <p>Your ID is: {this.props.user.id}</p>
           <div id="weatherInfo">
-            <input placeholder="Current City" 
-              onChange={this.handleChange}
-              name="city"/>
-            <button id="weatherBTN" onClick={this.getWeather}>
-              Get Weather
-            </button>
-            <p>{JSON.stringify(this.state)}</p>
-            <h4>Current Weather</h4>
-            <p>Temperature: {this.state.current_temp}°F</p>
-            <p>Humidity: {this.state.humidity} %</p>
-            <p>Conditions: {this.state.sky}</p> 
-            <p>{this.state.description}</p>
-            <p>Wind: {this.state.wind} mph</p>
-
-          </div>
-        
+            <div id= "weatherInputContainer">
+              <input placeholder="Current City" 
+                onChange={this.handleChange}
+                name="city"/>
+              <button id="weatherBTN" onClick={this.getWeather}>
+                Get Weather
+              </button>
+            </div>
+            {code !== null && <div id="weatherContent">
+              <div id="weatherAlerts">
+                {25 > wind > 15 && <p>Remember a windbreaker!</p>}
+                {sky ==='Rain' && <p>Remember an umbrella or rain coat!</p>}
+                {(currentTemp<65 && currentTemp>=55) && <p>It's a bit brisk: consider a sweater.</p>}
+                {(40<currentTemp && currentTemp<55)&& <p>It's chilly! Wear a jacket </p>}
+                {(0<currentTemp && currentTemp<40) && <p>Bundle up! It's going to be very cold. </p>}
+                {currentTemp<0 && <p>Honestly, don't go outside: it's a tundra nightmare. </p>}
+              </div>
+              <h4>Current Weather</h4>
+              <div id="weatherIconContainer">
+                {description ==="few clouds" && <img className="weatherIcon" src={require("./cloudy-day-1.svg")}></img>}
+                {description ==="scattered clouds" && <img className="weatherIcon" src={require("./cloudy-day-2.svg")}></img>}
+                {description ==="broken clouds" && <img className="weatherIcon" src={require("./cloudy.svg")}></img>}
+                {description ==="clear sky" && <img className="weatherIcon" src={require("./day.svg")}></img>}
+                {description ==="shower rain" && <img className="weatherIcon" src={require("./rainy-1.svg")}></img>}
+                {description ==="Rain" || description === "light rain" && <img className="weatherIcon" src={require("./rainy-6.svg")}></img>}
+                {description === "thunderstorm" && <img className="weatherIcon" src={require("./thunder.svg")}></img>}
+              </div>
+              <div id="tempData">
+                <p><b>Temperature:</b> {this.state.current_temp}°F</p>
+                <p><b>Humidity:</b> {this.state.humidity} %</p>
+                <p><b>Conditions:</b> {this.state.sky}</p> 
+                <p>{this.state.description}</p>
+                <p><b>Wind:</b> {this.state.wind} mph</p>
+                <p><b>Code:</b> {this.state.code}</p>
+              </div>
+            </div>}
+            </div>
         </div>
       );
     }

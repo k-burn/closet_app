@@ -66,7 +66,7 @@ class GarmentCard extends Component{
                 <br/>
                 <button onClick={() => { if (window.confirm('Are you sure you wish to delete this garment?')) this.handleDeleteClick()}}>Delete</button>
                 <button >Edit</button>
-                <button onClick={this.handleMoreInfoClick}>{showDetails ? 'Show Image' : 'More Info' }</button>
+                <button  className ="infoBTN" onClick={this.handleMoreInfoClick}>{showDetails ? 'Show Image' : <img className="imgIcon" src={require("./information.svg")}/>}</button>
             </div>
         )}
 

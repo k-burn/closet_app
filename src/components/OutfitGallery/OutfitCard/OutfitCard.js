@@ -20,7 +20,7 @@ class OutfitCard extends Component{
                 <br/>
                 <h3>{this.props.outfit.notes}</h3>
                 <br/>
-                <button onClick={() => { if (window.confirm('Are you sure you wish to delete this outfit?')) this.handleDeleteClick()}}>Delete</button>
+                <button className="deleteBTN" onClick={() => { if (window.confirm('Are you sure you wish to delete this outfit?')) this.handleDeleteClick()}}><img className= "deleteBTNImg" src={require("./delete-photo.svg")}/></button>
             </div>
         )}
 

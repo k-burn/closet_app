@@ -23,3 +23,23 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+.weatherIcon{
+    height: 50vh;
+    display: inline-block;
+}
+#weatherContent{
+    display: block;
+}
+#weatherInputContainer{
+    display: inline-block;
+}
+#weatherIconContainer{
+    display: inline-block;
+}
+#tempData{
+    display: inline-block;
+}
+#weatherAlerts{
+    display: inline-block;
+    color: #993955;
+}
