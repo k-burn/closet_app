@@ -230,15 +230,11 @@ class MixNMatch extends Component {
             return (
                 <div>
                      <Nav />
-                    <p>Add Form</p>
-                    {/*{JSON.stringify(this.state)}*/}
                     <form onSubmit={this.handleOutfitFormSubmit}>
                         <input name="goodForInput" placeholder="goodFor" onChange={this.handleChange} value={this.state.goodForInput}  ></input>
                         <button id="addGoodForBTN" onClick={this.pushToChipBox}>Add Key Word</button>
-                        <div>
-                            chip box
+                        <div id="goodForBox">
                             {JSON.stringify(this.state.goodFor)}
-                            
                         </div>
                         <div id="seasonsCheckboxContainerOutfit">
                             <p>Season</p>

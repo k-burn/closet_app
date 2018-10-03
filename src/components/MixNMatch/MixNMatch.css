@@ -92,3 +92,7 @@
     width: 10vw;
     display: inline-block;
 }
+#goodForBox{
+    border: #993955 2px solid;
+    color: #993955;
+}

@@ -93,9 +93,7 @@ class ManageGarments extends Component{
                     <input placeholder= "search by name" onChange={this.handleChange} name="searchName"/>
                     <button>Sort by</button>
                     <button>Filter By</button>
-                    <button>More Filters</button>
                     <br/>
-                    {JSON.stringify(this.state.searchName)}
                     <div id="garmentDisplayContainer">
                     {/* This will be where the cards with each garment will be displayed. 
                         cards will be mapped over here and will appear in a grid*/}

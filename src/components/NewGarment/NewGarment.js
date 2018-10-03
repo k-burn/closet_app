@@ -101,8 +101,6 @@ class NewGarment extends Component{
             <div>
                 <Header title="Project Base" />
                 <Nav />
-                <p>New Garment View</p>
-                <p>{JSON.stringify(this.state)}</p>
                 <form onSubmit={this.sendGarmentToDatabase}>
                     <input name="name" placeholder="garment name" onChange={this.handleChange}></input>
                     <br/>

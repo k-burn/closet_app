@@ -62,7 +62,6 @@ class OutfitGallery extends Component{
             <div>
                 <Header title="Project Base" />
                 <Nav />
-                <button onClick={this.handleAddGarmentClick} >Add New Garment</button>
                 <div id="manageOutfitsContainer">
                     <p>Manage Outfits </p>
                     <button>Sort by</button>

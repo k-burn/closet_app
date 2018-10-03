@@ -120,7 +120,6 @@ class UserPage extends Component {
                 <p><b>Conditions:</b> {this.state.sky}</p> 
                 <p>{this.state.description}</p>
                 <p><b>Wind:</b> {this.state.wind} mph</p>
-                <p><b>Code:</b> {this.state.code}</p>
               </div>
             </div>}
             </div>
