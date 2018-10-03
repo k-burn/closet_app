@@ -1,4 +1,4 @@
-# Name of Application
+# the Closet App
 
 A full-stack application designed to streamline the process of getting dressed and managing garments. 
 /link to live site will be here/
